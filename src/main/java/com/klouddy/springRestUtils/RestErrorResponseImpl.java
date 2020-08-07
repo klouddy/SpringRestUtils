@@ -4,8 +4,8 @@ import com.klouddy.springRestUtils.restExceptions.MalformedRequestException;
 import com.klouddy.springRestUtils.restExceptions.ResourceNotFoundException;
 import com.klouddy.springRestUtils.restExceptions.UnAuthorizedException;
 import java.time.LocalDateTime;
-import jdk.internal.joptsimple.internal.Strings;
 import lombok.Data;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -28,19 +28,20 @@ public class RestErrorResponseImpl implements RestErrorResponse {
 
   public static RestErrorResponse fromException(
       MethodArgumentNotValidException exception) {
-    if (exception != null && !Strings.isNullOrEmpty(
+    if (exception != null && StringUtils.hasLength(
         exception.getBindingResult().toString())) {
-      String message = "Validation Failed: ";
+      StringBuilder message = new StringBuilder("Validation Failed: ");
       int i = 0;
       for (FieldError fieldError : exception.getBindingResult().getFieldErrors()) {
         if (i > 0) {
-          message += "; ";
+          message.append("; ");
         }
-        message += "Field " + fieldError.getField() + " "
-            + fieldError.getDefaultMessage();
+        message.append("Field ").append(fieldError.getField()).append(
+            " ").append(fieldError.getDefaultMessage());
         i++;
       }
-      return new RestErrorResponseImpl(message, MALFORMED_REQUEST_ERROR_TYPE);
+      return new RestErrorResponseImpl(message.toString(),
+          MALFORMED_REQUEST_ERROR_TYPE);
     } else {
       return new RestErrorResponseImpl(MALFORMED_REQUEST_ERROR_TYPE,
           MALFORMED_REQUEST_ERROR_TYPE);
@@ -52,7 +53,7 @@ public class RestErrorResponseImpl implements RestErrorResponse {
    */
   public static RestErrorResponse fromException(
       ResourceNotFoundException exception) {
-    if (exception != null && !Strings.isNullOrEmpty(
+    if (exception != null && StringUtils.hasLength(
         exception.getLocalizedMessage())) {
       return new RestErrorResponseImpl(exception.getLocalizedMessage(),
           NOT_FOUND_ERROR_TYPE);
@@ -68,7 +69,7 @@ public class RestErrorResponseImpl implements RestErrorResponse {
    */
   public static RestErrorResponse fromException(
       MalformedRequestException exception) {
-    if (exception != null && !Strings.isNullOrEmpty(
+    if (exception != null && StringUtils.hasLength(
         exception.getLocalizedMessage())) {
       return new RestErrorResponseImpl(exception.getLocalizedMessage(),
           MALFORMED_REQUEST_ERROR_TYPE);
@@ -84,7 +85,7 @@ public class RestErrorResponseImpl implements RestErrorResponse {
    */
   public static RestErrorResponse fromException(
       UnAuthorizedException exception) {
-    if (exception != null && !Strings.isNullOrEmpty(
+    if (exception != null && StringUtils.hasLength(
         exception.getLocalizedMessage())) {
       return new RestErrorResponseImpl(exception.getLocalizedMessage(),
           UNAUTHORIZED_ERROR_TYPE);
@@ -95,7 +96,7 @@ public class RestErrorResponseImpl implements RestErrorResponse {
   }
 
   public static RestErrorResponse fromException(BindException exception) {
-    if (exception != null && !Strings.isNullOrEmpty(
+    if (exception != null && StringUtils.hasLength(
         exception.getBindingResult().toString())) {
       StringBuilder message = new StringBuilder("Validation Failed: ");
       int i = 0;
