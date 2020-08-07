@@ -42,9 +42,10 @@ public class GlobalRestControllerExceptionHandler extends ResponseEntityExceptio
     exceptionLogObject.setPath(reqPath(req));
     log.warn("Resource not found {}", exceptionLogObject);
 
-    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl();
-    restErrorResponse.setError(ex.getLocalizedMessage());
-    restErrorResponse.setMessage(RestErrorResponse.NOT_FOUND_ERROR_TYPE);
+    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl(
+        ex.getLocalizedMessage(),
+        RestErrorResponse.NOT_FOUND_ERROR_TYPE
+    );
     restErrorResponse.setPath(reqPath(req));
 
     return new ResponseEntity<>(restErrorResponse,
@@ -65,10 +66,10 @@ public class GlobalRestControllerExceptionHandler extends ResponseEntityExceptio
     exceptionLogObject.setPath(reqPath(req));
     log.info("Malformed Request: {}", exceptionLogObject);
 
-    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl();
-    restErrorResponse.setError(ex.getLocalizedMessage());
-    restErrorResponse.setMessage(
-        RestErrorResponse.MALFORMED_REQUEST_ERROR_TYPE);
+    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl(
+        ex.getLocalizedMessage(),
+        RestErrorResponse.MALFORMED_REQUEST_ERROR_TYPE
+    );
     restErrorResponse.setPath(reqPath(req));
 
     return new ResponseEntity<>(restErrorResponse, HttpStatus.BAD_REQUEST);
@@ -84,10 +85,11 @@ public class GlobalRestControllerExceptionHandler extends ResponseEntityExceptio
       WebRequest req) {
 
     log.warn("Unauthorized access for {}", reqPath(req));
-    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl();
+    RestErrorResponseImpl restErrorResponse = new RestErrorResponseImpl(
+        RestErrorResponse.UNAUTHORIZED_ERROR_TYPE,
+        RestErrorResponse.UNAUTHORIZED_ERROR_TYPE
+    );
     restErrorResponse.setPath(reqPath(req));
-    restErrorResponse.setMessage(RestErrorResponse.UNAUTHORIZED_ERROR_TYPE);
-    restErrorResponse.setError(RestErrorResponse.UNAUTHORIZED_ERROR_TYPE);
     return new ResponseEntity<>(restErrorResponse,
         HttpStatus.FORBIDDEN);
   }
@@ -114,8 +116,7 @@ public class GlobalRestControllerExceptionHandler extends ResponseEntityExceptio
     log.warn("Invalid Arguments: {}", exceptionLogObject);
 
     return new ResponseEntity<>(
-        RestErrorResponseImpl.fromException(
-            (MethodArgumentNotValidException) ex),
+        RestErrorResponseImpl.fromException(ex),
         HttpStatus.BAD_REQUEST);
   }
 
