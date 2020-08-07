@@ -180,9 +180,9 @@ public class GlobalRestControllerExceptionHandler extends ResponseEntityExceptio
   }
 
   /**
-   * Hand Gentex Service Exception
+   * Hand Service Exception
    *
-   * @param ex -- Gentex Servcie Exception that is thrown
+   * @param ex -- Service Exception that is thrown
    * @param req -- request that triggered the exception
    * @return Built error response.
    */
