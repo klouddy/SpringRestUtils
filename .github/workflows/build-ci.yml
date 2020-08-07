@@ -30,7 +30,7 @@ jobs:
           name: Package
           path: staging
 
-  publish:
+  publish-snapshot:
     needs: build
     runs-on: ubuntu-latest
     steps:
