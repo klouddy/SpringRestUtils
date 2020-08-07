@@ -22,9 +22,9 @@
 
   <properties>
     <java.version>11</java.version>
-    <revision>${semver}${buildnum}</revision>
+    <revision>${semver}-${buildnum}</revision>
     <semver>0.0.1</semver>
-    <buildnum>-SNAPSHOT</buildnum>
+    <buildnum>SNAPSHOT</buildnum>
     <feign.version>10.0.1</feign.version>
     <commons.version>2.7</commons.version>
     <lombok.version>1.18.12</lombok.version>
