@@ -82,6 +82,14 @@ public class SimplePageResponse<T> {
         List<T> items = fullList.subList(start, start + pageRequest.getSize());
         simplePageResponse.setHasMore(true);
         simplePageResponse.setItems(items);
+      } else if (start >= fullList.size()) {
+        simplePageResponse.setHasMore(false);
+        simplePageResponse.setItems(new ArrayList<>());
+      } else if (start == fullList.size() - 1) {
+        List<T> items = new ArrayList<>();
+        items.add(fullList.get(fullList.size() - 1));
+        simplePageResponse.setHasMore(false);
+        simplePageResponse.setItems(items);
       } else {
         List<T> items = fullList.subList(start, fullList.size() - 1);
         simplePageResponse.setHasMore(false);
