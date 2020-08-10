@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.klouddy</groupId>
-  <artifactId>SpringRestUtils</artifactId>
+  <artifactId>spring-rest-utils</artifactId>
   <version>${revision}</version>
   <build>
     <plugins>
