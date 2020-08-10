@@ -14,6 +14,43 @@ import org.junit.jupiter.api.Test;
 class SimplePageResponseTest {
 
   @Test
+  public void fromList_whenLastPage() {
+    SimplePageRequest simplePageRequest = new SimplePageRequest();
+    simplePageRequest.setSize(2);
+    simplePageRequest.setPage(3);
+
+    List<String> items = Arrays.asList("1", "2", "3", "4", "5", "6", "7");
+    SimplePageResponse<String> response = SimplePageResponse.fromList(
+        simplePageRequest, items);
+
+    assertThat(response.getHasMore(), is(equalTo(false)));
+    assertThat(response.getItems().size(), is(equalTo(1)));
+    assertThat(response.getItems().get(0), is(equalTo("7")));
+    assertThat(response.getPageNumber(), is(equalTo(3)));
+    assertThat(response.getTotalPages(), is(equalTo(4)));
+    assertThat(response.getTotalSize(),
+        is(equalTo(Long.valueOf(items.size()))));
+  }
+
+  @Test
+  public void fromList_whenPageIsTooLarge() {
+    SimplePageRequest simplePageRequest = new SimplePageRequest();
+    simplePageRequest.setSize(1);
+    simplePageRequest.setPage(3);
+
+    List<String> items = Arrays.asList("1", "2", "3");
+    SimplePageResponse<String> response = SimplePageResponse.fromList(
+        simplePageRequest, items);
+
+    assertThat(response.getHasMore(), is(equalTo(false)));
+    assertThat(response.getItems().isEmpty(), is(equalTo(true)));
+    assertThat(response.getPageNumber(), is(equalTo(3)));
+    assertThat(response.getTotalPages(), is(equalTo(3)));
+    assertThat(response.getTotalSize(),
+        is(equalTo(Long.valueOf(items.size()))));
+  }
+
+  @Test
   public void fromList_whenNullForValues() {
     SimplePageRequest simplePageRequest = new SimplePageRequest();
     simplePageRequest.setSize(20);
