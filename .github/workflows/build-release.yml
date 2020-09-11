@@ -16,6 +16,6 @@ jobs:
           java-version: 11
 
       - name: Publish package
-        run: mvn -B deploy -Dbuildnum=$GITHUB_RUN_NUMBER
+        run: mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
