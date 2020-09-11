@@ -145,7 +145,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/klouddy/SpringRestUtils</url>
+      <url>https://maven.pkg.github.com/klouddy/spring-rest-utils</url>
     </repository>
   </distributionManagement>
 
