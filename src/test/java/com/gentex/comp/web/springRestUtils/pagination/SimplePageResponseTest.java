@@ -1,4 +1,4 @@
-package com.kloudd.springRestUtils.pagination;
+package com.gentex.comp.web.springRestUtils.pagination;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -29,7 +29,7 @@ class SimplePageResponseTest {
     assertThat(response.getPageNumber(), is(equalTo(3)));
     assertThat(response.getTotalPages(), is(equalTo(4)));
     assertThat(response.getTotalSize(),
-        is(equalTo(Long.valueOf(items.size()))));
+        is(equalTo((long) items.size())));
   }
 
   @Test
@@ -47,7 +47,7 @@ class SimplePageResponseTest {
     assertThat(response.getPageNumber(), is(equalTo(3)));
     assertThat(response.getTotalPages(), is(equalTo(3)));
     assertThat(response.getTotalSize(),
-        is(equalTo(Long.valueOf(items.size()))));
+        is(equalTo((long) items.size())));
   }
 
   @Test
