@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.restExceptions;
+package com.gentex.comp.web.springRestUtils.restExceptions;
 
 /**
  * Use this when an error occurs using another api.

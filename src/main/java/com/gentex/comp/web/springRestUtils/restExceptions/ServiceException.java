@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.restExceptions;
+package com.gentex.comp.web.springRestUtils.restExceptions;
 
 /**
  * Generic Exception for use when there is an error in any service.

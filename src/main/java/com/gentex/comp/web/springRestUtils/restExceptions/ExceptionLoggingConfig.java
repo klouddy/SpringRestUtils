@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.restExceptions;
+package com.gentex.comp.web.springRestUtils.restExceptions;
 
 import lombok.Builder;
 import lombok.Data;

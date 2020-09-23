@@ -1,7 +1,7 @@
-package com.klouddy.springRestUtils.restExceptions;
+package com.gentex.comp.web.springRestUtils.restExceptions;
 
-import com.klouddy.springRestUtils.RestErrorResponse;
-import com.klouddy.springRestUtils.RestErrorResponseImpl;
+import com.gentex.comp.web.springRestUtils.RestErrorResponse;
+import com.gentex.comp.web.springRestUtils.RestErrorResponseImpl;
 import java.sql.SQLException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;

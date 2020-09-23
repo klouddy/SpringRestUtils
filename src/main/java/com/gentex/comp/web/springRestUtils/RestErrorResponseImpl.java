@@ -1,8 +1,8 @@
-package com.klouddy.springRestUtils;
+package com.gentex.comp.web.springRestUtils;
 
-import com.klouddy.springRestUtils.restExceptions.MalformedRequestException;
-import com.klouddy.springRestUtils.restExceptions.ResourceNotFoundException;
-import com.klouddy.springRestUtils.restExceptions.UnAuthorizedException;
+import com.gentex.comp.web.springRestUtils.restExceptions.MalformedRequestException;
+import com.gentex.comp.web.springRestUtils.restExceptions.ResourceNotFoundException;
+import com.gentex.comp.web.springRestUtils.restExceptions.UnAuthorizedException;
 import java.time.LocalDateTime;
 import lombok.Data;
 import org.springframework.util.StringUtils;

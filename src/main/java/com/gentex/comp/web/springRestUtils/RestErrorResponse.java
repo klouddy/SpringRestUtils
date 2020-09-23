@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils;
+package com.gentex.comp.web.springRestUtils;
 
 import java.time.LocalDateTime;
 

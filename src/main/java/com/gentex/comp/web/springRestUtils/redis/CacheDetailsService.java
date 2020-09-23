@@ -1,6 +1,6 @@
-package com.klouddy.springRestUtils.redis;
+package com.gentex.comp.web.springRestUtils.redis;
 
-import com.klouddy.springRestUtils.restExceptions.ResourceNotFoundException;
+import com.gentex.comp.web.springRestUtils.restExceptions.ResourceNotFoundException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;

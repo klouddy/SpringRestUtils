@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.pagination;
+package com.gentex.comp.web.springRestUtils.pagination;
 
 import java.util.ArrayList;
 import java.util.List;

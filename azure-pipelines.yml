@@ -1,0 +1,20 @@
+trigger:
+  - master
+
+# templates repo
+# This always needs to be added so you
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: IT-Apps/comp.app.common.devops-templates
+      ref: refs/tags/v9
+
+# Global Variables
+variables:
+  # necessary variables defined in this template
+  - template: azure-templates/vars/gntx-vars.yml@templates
+
+stages:
+  # template to build and deploy
+  - template: azure-templates/stages/build-spring-boot-component.yml@templates

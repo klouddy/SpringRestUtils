@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.redis;
+package com.gentex.comp.web.springRestUtils.redis;
 
 import java.util.List;
 import org.springframework.data.redis.core.StringRedisTemplate;

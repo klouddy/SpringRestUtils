@@ -1,4 +1,4 @@
-package com.klouddy.springRestUtils.redis;
+package com.gentex.comp.web.springRestUtils.redis;
 
 import lombok.Builder;
 import lombok.Data;

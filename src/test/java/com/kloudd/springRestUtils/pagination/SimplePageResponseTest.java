@@ -4,8 +4,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import com.klouddy.springRestUtils.pagination.SimplePageRequest;
-import com.klouddy.springRestUtils.pagination.SimplePageResponse;
+import com.gentex.comp.web.springRestUtils.pagination.SimplePageRequest;
+import com.gentex.comp.web.springRestUtils.pagination.SimplePageResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

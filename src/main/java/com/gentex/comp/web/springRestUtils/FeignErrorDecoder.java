@@ -1,8 +1,8 @@
-package com.klouddy.springRestUtils;
+package com.gentex.comp.web.springRestUtils;
 
-import com.klouddy.springRestUtils.restExceptions.ResourceNotFoundException;
-import com.klouddy.springRestUtils.restExceptions.UnAuthorizedException;
-import com.klouddy.springRestUtils.restExceptions.UpstreamApiException;
+import com.gentex.comp.web.springRestUtils.restExceptions.ResourceNotFoundException;
+import com.gentex.comp.web.springRestUtils.restExceptions.UnAuthorizedException;
+import com.gentex.comp.web.springRestUtils.restExceptions.UpstreamApiException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import java.io.IOException;
